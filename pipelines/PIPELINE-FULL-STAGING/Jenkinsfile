@@ -4,13 +4,13 @@ pipeline {
         
         stage('SetUp'){
             steps{
-                echo 'Setup Virtualenv for testing'
+                echo 'Configuración de entorno virual python'
                 sh "bash pipelines/PIPELINE-FULL-STAGING/setup.sh"
             }
         }
         stage('Test'){
             steps{
-                echo 'Static program analysis:'
+                echo 'Pruebas estaticas:'
                 sh "bash pipelines/PIPELINE-FULL-STAGING/static_test.sh"
                 echo 'Unit testing:'
                 sh "bash pipelines/PIPELINE-FULL-STAGING/unit_test.sh"
