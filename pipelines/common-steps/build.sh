@@ -3,4 +3,4 @@
 source todo-list-aws/bin/activate
 set -x
 sam validate --region us-east-1
-sam build --use-container
+sam build
