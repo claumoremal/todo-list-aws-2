@@ -4,13 +4,13 @@ pipeline {
         
         stage('SetUp'){
             steps{
-                echo 'Configuración de entorno virual python'
+                echo 'Setup Virtualenv for testing'
                 sh "bash pipelines/PIPELINE-FULL-STAGING/setup.sh"
             }
         }
         stage('Test'){
             steps{
-                echo 'Pruebas estaticas:'
+                echo 'Static program analysis:'
                 sh "bash pipelines/PIPELINE-FULL-STAGING/static_test.sh"
                 echo 'Unit testing:'
                 sh "bash pipelines/PIPELINE-FULL-STAGING/unit_test.sh"
@@ -19,7 +19,7 @@ pipeline {
                 always {
                     script {
                         def failed = publishCoverage (failUnhealthy: true, 
-                            globalThresholds: [[thresholdTarget: 'Line',lineCoverageTargets: '100, 0, 0', unhealthyThreshold: 70.0]],
+                            globalThresholds: [[thresholdTarget: 'Line', unhealthyThreshold: 70.0]],
                             adapters: [coberturaAdapter(
                                 mergeToOneReport: true, 
                                 path: '**/coverage.xml')])
