@@ -101,6 +101,12 @@ class TestDatabaseFunctions(unittest.TestCase):
         self.assertEqual(
             self.text,
             responseGet['text'])
+        self.assertEqual(
+            self.text,
+            responseGet['Error'])
+        self.assertEqual(
+            self.text,
+            responseGet['Message'])
         print ('End: test_get_todo')
     
     def test_list_todo(self):
