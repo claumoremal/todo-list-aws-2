@@ -124,8 +124,8 @@ class TestDatabaseFunctions(unittest.TestCase):
         self.assertEqual(200, responsePut['statusCode'])
         print ('arranca prueba')
         responseGet = get_item(
-                idItem,
-                'dynamodb')
+                'idItem',
+                self.dynamodb)
         print ('Response Get falla:' + str(responseGet))
         self.assertEqual(
             self.text,
