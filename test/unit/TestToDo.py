@@ -107,6 +107,21 @@ class TestDatabaseFunctions(unittest.TestCase):
         self.assertEqual(
             self.text,
             responseGet['Message'])
+        print ('End: test_get_todo')
+        
+    def test_get_todo_Error(self):
+        print ('---------------------')
+        print ('Start: test_get_todo_Error')
+        from src.todoList import get_item
+        from src.todoList import put_item
+
+        # Testing file functions
+        # Table mock
+        responsePut = put_item(self.text, self.dynamodb)
+        print ('Response put_item:' + str(responsePut))
+        idItem = json.loads(responsePut['body'])['id']
+        print ('Id item:' + idItem)
+        self.assertEqual(200, responsePut['statusCode'])
         print ('arranca prueba')
         responseGet = get_item(
                 idItem,
@@ -121,7 +136,7 @@ class TestDatabaseFunctions(unittest.TestCase):
         self.assertEqual(
             self.text,
             responseGet['Message'])
-        print ('End: test_get_todo')
+        print ('End: test_get_todo_Error')
     
     def test_list_todo(self):
         print ('---------------------')
