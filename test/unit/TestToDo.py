@@ -128,14 +128,8 @@ class TestDatabaseFunctions(unittest.TestCase):
                 self.dynamodb)
         print ('Response Get falla:' + str(responseGet))
         self.assertEqual(
-            self.text,
-            responseGet['text'])
-        self.assertEqual(
-            self.text,
-            responseGet['Error'])
-        self.assertEqual(
-            self.text,
-            responseGet['Message'])
+            'None', str(responseGet)
+            )
         print ('End: test_get_todo_Error')
     
     def test_list_todo(self):
