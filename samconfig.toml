@@ -30,7 +30,7 @@ stack_name = "todo-list-aws-production"
 s3_prefix = "todo-list-aws-production"
 region = "us-east-1"
 capabilities = "CAPABILITY_IAM"
-parameter_overrides = "Stage=\"production
+parameter_overrides = "Stage=\"production\""
 s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-c5ep64ophu30"
 confirm_changeset = true
 disable_rollback = false
