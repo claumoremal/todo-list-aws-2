@@ -5,7 +5,7 @@ pipeline {
         stage('Staging'){
             steps{
                 echo 'Starting staging job'
-                build job: 'PIPELINE-FULL-STAGING', parameters: [
+                build job: 'pipeline-full-cd', parameters: [
                       string(name:'ENVIRONMENT', value: "staging")]
             }
         }
