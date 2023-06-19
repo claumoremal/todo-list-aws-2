@@ -29,3 +29,4 @@ region = "us-east-1"
 capabilities = "CAPABILITY_IAM"
 parameter_overrides = "Stage=\"production\""
 image_repositories = []
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-c5ep64ophu30"
